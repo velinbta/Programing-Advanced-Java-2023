@@ -10,7 +10,7 @@ public class BrowserHistory_01_2 {
 
         String input = scanner.nextLine(); // <- Първият input съдържа Home url, или може да е "back"
 
-        Deque<String> urlDeque = new ArrayDeque<>(); // <- Тук държа url адресите
+        Deque<String> urlStack = new ArrayDeque<>(); // <- Тук държа url адресите
 
         while (!input.equals("Home")) {
 
@@ -18,10 +18,10 @@ public class BrowserHistory_01_2 {
 
                 // Home url искам да остава, затова махам само ако размера е раличен
                 // от 0 (празен) или от 1 (съдържа Home url)
-                if (urlDeque.size() != 1 && urlDeque.size() != 0) {
+                if (urlStack.size() != 1 && urlStack.size() != 0) {
 
-                    urlDeque.pop(); // <- Махам
-                    System.out.println(urlDeque.peek()); // <- Принтирам върха на стека
+                    urlStack.pop(); // <- Махам
+                    System.out.println(urlStack.peek()); // <- Принтирам върха на стека
 
                 } else { // <- Ако е само Home url
 
@@ -31,8 +31,8 @@ public class BrowserHistory_01_2 {
 
             } else { // Ако не е "back"
 
-                urlDeque.push(input); // <- Добавям адрес
-                System.out.println(urlDeque.peek()); // <- Принтирам върха на стека - последния url
+                urlStack.push(input); // <- Добавям адрес
+                System.out.println(urlStack.peek()); // <- Принтирам върха на стека - последния url
 
             }
 

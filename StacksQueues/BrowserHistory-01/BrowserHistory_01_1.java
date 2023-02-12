@@ -12,7 +12,7 @@ public class BrowserHistory_01_1 {
 
         String homeUrl = null;
 
-        Deque<String> urlDeque = new ArrayDeque<>(); // <- Тук държа url адресите
+        Deque<String> urlStack = new ArrayDeque<>(); // <- Тук държа url адресите
 
         while (!input.equals("Home")) {
 
@@ -20,19 +20,19 @@ public class BrowserHistory_01_1 {
 
                 if (homeUrl != null) { // <- В случай, че ми се подаде back, още отначало
 
-                    if (!urlDeque.isEmpty()) {
+                    if (!urlStack.isEmpty()) {
 
                         // Премахвам върха на стека, и пак питам дали е празен
-                        urlDeque.pop();
+                        urlStack.pop();
 
-                        if (!urlDeque.isEmpty()) {
+                        if (!urlStack.isEmpty()) {
 
-                            System.out.println(urlDeque.peek());
+                            System.out.println(urlStack.peek());
 
                         } else { // <- Ако е празен
 
                             System.out.println("no previous URLs");
-                            urlDeque.push(homeUrl); // <- Задавам му обратно Home url на върха
+                            urlStack.push(homeUrl); // <- Задавам му обратно Home url на върха
 
                         }
 
@@ -51,7 +51,7 @@ public class BrowserHistory_01_1 {
                 }
 
                 System.out.println(input);
-                urlDeque.push(input);
+                urlStack.push(input);
 
             }
 
