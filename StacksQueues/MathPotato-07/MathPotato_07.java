@@ -9,7 +9,7 @@ public class MathPotato_07 {
         Scanner scanner = new Scanner(System.in);
 
         String childrenNames = scanner.nextLine();
-        int toss = Integer.parseInt(scanner.nextLine());
+        int toss = Integer.parseInt(scanner.nextLine()); // <- Няма нужда и да се разбъркват, понеже те излизат по приоритет!
 
         PriorityQueue<String> priorityNamesQueue = new PriorityQueue<>(); // <- Подреждам имената в приоритетна опашка
         Arrays.stream(childrenNames.split("\\s+")).forEach(e -> priorityNamesQueue.offer(e));
@@ -17,12 +17,6 @@ public class MathPotato_07 {
         int loop = 1; // <- Брояч на циклите
 
         while (priorityNamesQueue.size() > 1) { // <- Докато не остане само 1 дете
-
-            for (int i = 0; i < toss - 1; i++) { // <- Броенето започва от първото дете (-1)
-
-                priorityNamesQueue.offer(priorityNamesQueue.poll());
-
-            }
 
             if (isPrime(loop)) { // <- Ако цикълът е просто число
 
