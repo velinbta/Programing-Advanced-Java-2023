@@ -26,7 +26,7 @@ public class BrowserHistory_01_3 {
 
                 }
 
-            } else { // <- Ако не е "back"
+            } else { // <- Ако е "нормална навигация"
 
                 historyStack.push(input);
                 System.out.println(historyStack.peek());
