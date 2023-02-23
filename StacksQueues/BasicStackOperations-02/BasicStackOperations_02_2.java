@@ -1,42 +1,36 @@
 package StacksQueues;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.Scanner;
+import java.util.*;
 
-public class BasicStackOperations_02_1 {
+public class BasicStackOperations_02_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int[] elementsArr = Arrays.stream(scanner.nextLine().split("\\s+"))
                 .mapToInt(e -> Integer.parseInt(e)).toArray();
 
-        int[] lineOfNumbersArr = Arrays.stream(scanner.nextLine().split("\\s+"))
+        int[] lineOfNumbers = Arrays.stream(scanner.nextLine().split("\\s+"))
                 .mapToInt(e -> Integer.parseInt(e)).toArray();
-
-        Deque<Integer> numStack = new ArrayDeque<>();
 
         int elementsToPush = elementsArr[0]; // <- Елементите, които да вкарам в стека
         int elementsToPop = elementsArr[1]; // <- Елементите, които да изкарам от стека
         int checkIfPresentElement = elementsArr[2]; // <- Елемент, който да проверя дали е в стека
 
+        Deque<Integer> numStack = new ArrayDeque<>();
+
         for (int i = 0; i < elementsToPush; i++) { // <- Вкарвам необходимия брой елементи в стека
 
-            int currentElement = lineOfNumbersArr[i];
+            int currentElement = lineOfNumbers[i];
             numStack.push(currentElement);
 
         }
 
-        int popElements = elementsToPop;
-
-        while (popElements > 0) {
+        for (int i = 0; i < elementsToPop; i++) {
 
             if (!numStack.isEmpty()) { // <- Ако numStack не е празен, изкарвам елемента на върха
                 numStack.pop();
             }
 
-            popElements--;
         }
 
         if (numStack.isEmpty()) { // <- Ако е празен
@@ -45,32 +39,14 @@ public class BasicStackOperations_02_1 {
 
         } else if (numStack.contains(checkIfPresentElement)) { // <- Ако се съдържа в стека
 
-            System.out.println("true");
+            System.out.println(numStack.contains(checkIfPresentElement));
 
-        } else { // <- Намирам най-малкото число в стека
+        } else { // <- Иначе, намирам най-малкия елемент в стека
 
-            int smallest = findTheSmallestNumberInStack(numStack);
-            System.out.println(smallest);
-
-        }
-
-    }
-
-    private static int findTheSmallestNumberInStack(Deque<Integer> stack) {
-        // Намирам най-малкото число в стека
-        int smallest = Integer.MAX_VALUE;
-
-        for (Integer number : stack) {
-
-            if (number < smallest) {
-
-                smallest = number;
-
-            }
+            int min = numStack.stream().min(Comparator.comparing(e -> Integer.MAX_VALUE)).orElse(-1);
+            System.out.println(min);
 
         }
-
-        return smallest;
 
     }
 
