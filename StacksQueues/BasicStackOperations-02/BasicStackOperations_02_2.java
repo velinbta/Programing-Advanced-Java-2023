@@ -43,7 +43,7 @@ public class BasicStackOperations_02_2 {
 
         } else { // <- Иначе, намирам най-малкия елемент в стека
 
-            int min = numStack.stream().min(Comparator.comparing(e -> Integer.MAX_VALUE)).orElse(-1);
+            int min = numStack.stream().mapToInt(e -> e).min().orElse(-1);
             System.out.println(min);
 
         }
