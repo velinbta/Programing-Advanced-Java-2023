@@ -9,7 +9,7 @@ public class BasicStackOperations_02_2 {
         int[] elementsArr = Arrays.stream(scanner.nextLine().split("\\s+"))
                 .mapToInt(e -> Integer.parseInt(e)).toArray();
 
-        int[] lineOfNumbers = Arrays.stream(scanner.nextLine().split("\\s+"))
+        int[] lineOfNumbersArr = Arrays.stream(scanner.nextLine().split("\\s+"))
                 .mapToInt(e -> Integer.parseInt(e)).toArray();
 
         int elementsToPush = elementsArr[0]; // <- Елементите, които да вкарам в стека
@@ -20,7 +20,7 @@ public class BasicStackOperations_02_2 {
 
         for (int i = 0; i < elementsToPush; i++) { // <- Вкарвам необходимия брой елементи в стека
 
-            int currentElement = lineOfNumbers[i];
+            int currentElement = lineOfNumbersArr[i];
             numStack.push(currentElement);
 
         }
