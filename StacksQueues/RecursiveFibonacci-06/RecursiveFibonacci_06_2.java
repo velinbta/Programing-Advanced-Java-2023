@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
-public class RecursiveFibonacci_06 {
+public class RecursiveFibonacci_06_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,22 +14,15 @@ public class RecursiveFibonacci_06 {
         recursiveQueue.offer(1L);
         recursiveQueue.offer(1L);
 
-        long last = 1; // <- Желанато число
-        for (int i = 0; i < n - 1; i++) {
-
-            Long getFirst = recursiveQueue.poll();
-
-            if (getFirst != null) {
-
-                Long result = getFirst + last; // <- Събирам последните две числа
-                recursiveQueue.offer(result);
-                last = result;
-
-            }
+        for (int i = 0; i < n; i++) {
+            // Събирам последните две числа
+            Long sumOfLastTwoInQueue = recursiveQueue.stream().mapToLong(e -> e).sum();
+            recursiveQueue.offer(sumOfLastTwoInQueue);
+            recursiveQueue.poll(); // <- Махам първото
 
         }
 
-        System.out.println(last);
+        System.out.println(recursiveQueue.poll()); // <- Желаното n-число
 
     }
 
