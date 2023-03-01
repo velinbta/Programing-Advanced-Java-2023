@@ -4,7 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
-public class BalancedParentheses_05 {
+public class BalancedParentheses_05_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
