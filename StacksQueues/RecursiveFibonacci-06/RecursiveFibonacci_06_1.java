@@ -10,19 +10,19 @@ public class RecursiveFibonacci_06_1 {
 
         int n = Integer.parseInt(scanner.nextLine());
 
-        Deque<Long> recursiveQueue = new ArrayDeque<>(); // <- Последните две числа от поредицата
-        recursiveQueue.offer(1L);
-        recursiveQueue.offer(1L);
+        Deque<Long> fibonacciQueue = new ArrayDeque<>(); // <- Последните две числа от поредицата
+        fibonacciQueue.offer(1L);
+        fibonacciQueue.offer(1L);
 
         long last = 1; // <- Желаното n-число
         for (int i = 0; i < n - 1; i++) {
 
-            Long getFirst = recursiveQueue.poll();
+            Long getFirst = fibonacciQueue.poll();
 
             if (getFirst != null) {
 
                 Long result = getFirst + last; // <- Събирам последните две числа
-                recursiveQueue.offer(result);
+                fibonacciQueue.offer(result);
                 last = result;
 
             }
