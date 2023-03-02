@@ -10,19 +10,23 @@ public class RecursiveFibonacci_06_2 {
 
         int n = Integer.parseInt(scanner.nextLine());
 
-        Deque<Long> fibonacciQueue = new ArrayDeque<>(); // <- Последните две числа от поредицата
-        fibonacciQueue.offer(1L);
-        fibonacciQueue.offer(1L);
+        Deque<Long> fibonacciStack = new ArrayDeque<>(); // <- Последните две числа от поредицата
+        fibonacciStack.push(0L);
+        fibonacciStack.push(1L);
 
         for (int i = 0; i < n; i++) {
-            // Събирам последните две числа
-            Long sumOfLastTwoInQueue = fibonacciQueue.stream().mapToLong(e -> e).sum();
-            fibonacciQueue.offer(sumOfLastTwoInQueue);
-            fibonacciQueue.poll(); // <- Махам първото
+
+            // Събирам двете числа от поредицата n на брой пъти
+            Long first = fibonacciStack.pop();
+            Long second = fibonacciStack.pop();
+            fibonacciStack.push(first);
+
+            Long result = first + second;
+            fibonacciStack.push(result);
 
         }
 
-        System.out.println(fibonacciQueue.poll()); // <- Желаното n-число
+        System.out.println(fibonacciStack.pop()); // <- Желаното n-число
 
     }
 
