@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class SumMatrixElements_04 {
+public class SumMatrixElements_04_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -15,9 +15,9 @@ public class SumMatrixElements_04 {
 
         int[][] matrix = fillInMatrixWithDelimiterComaAndWhitespaces(scanner, rowsMatrix);
 
-        int totalElementsCount = countNumbersInMatrix(matrix); // <- Общия брой на числата в матрицата
+        int totalElementsCount = countNumbersTotalSumInMatrix(matrix); // <- Общата сума на числата в матрицата
 
-        System.out.printf("%d\n%d\n%d\n", rowsMatrix, columnsMatrix, totalElementsCount);
+        System.out.printf("%d\n%d\n%d", rowsMatrix, columnsMatrix, totalElementsCount);
 
     }
 
@@ -32,7 +32,7 @@ public class SumMatrixElements_04 {
         return matrix;
     }
 
-    private static int countNumbersInMatrix(int[][] matrix) {
+    private static int countNumbersTotalSumInMatrix(int[][] matrix) {
         // Общия брой на числата в матрицата
         int totalElementsCount = 0;
         for (int[] arr : matrix)
