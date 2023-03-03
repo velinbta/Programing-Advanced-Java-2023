@@ -36,13 +36,13 @@ public class CompareMatrices_01_2 {
 
     private static boolean areTwoMatrixEqual(int[][] firstMatrix, int[][] secondMatrix) {
         // Сравнявам всеки от елементите на двете матрици
-        if (firstMatrix.length != secondMatrix.length)
+        if (firstMatrix.length != secondMatrix.length) // <- Дължина
             return false;
 
         for (int rows = 0; rows < firstMatrix.length; rows++)
             for (int cols = 0; cols < firstMatrix[rows].length; cols++) {
 
-                if (firstMatrix[rows].length != secondMatrix[rows].length)
+                if (firstMatrix[rows].length != secondMatrix[rows].length) // <- Отделните редове
                     return false;
 
                 int firstElement = firstMatrix[rows][cols];
