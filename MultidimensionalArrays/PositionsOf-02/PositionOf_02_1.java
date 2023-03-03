@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PositionOf_02 {
+public class PositionOf_02_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -18,7 +18,8 @@ public class PositionOf_02 {
 
             for (int columns = 0; columns < matrix[rows].length; columns++) {
 
-                if (matrix[rows][columns] == numberToFind) {
+                int currentNumber = matrix[rows][columns];
+                if (currentNumber == numberToFind) {
                     isFound = true;
                     System.out.printf("%d %d\n", rows, columns);
                 }
