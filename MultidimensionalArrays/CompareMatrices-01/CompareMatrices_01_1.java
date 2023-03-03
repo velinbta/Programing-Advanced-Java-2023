@@ -63,20 +63,17 @@ public class CompareMatrices_01_1 {
     private static boolean haveEqualElements(int[][] firstMatrix, int[][] secondMatrix) {
 
         // Проверявам дали матриците съдържат еднакви елементи
-        for (int i = 0; i < firstMatrix.length; i++) {
+        for (int rows = 0; rows < firstMatrix.length; rows++)
 
-            for (int j = 0; j < firstMatrix[i].length; j++) {
+            for (int cols = 0; cols < firstMatrix[rows].length; cols++) {
 
-                int firstElement = firstMatrix[i][j];
-                int secondElement = secondMatrix[i][j];
+                int firstElement = firstMatrix[rows][cols];
+                int secondElement = secondMatrix[rows][cols];
 
-                if (firstElement != secondElement) {
+                if (firstElement != secondElement)
                     return false;
-                }
 
             }
-
-        }
 
         return true;
     }
