@@ -44,9 +44,8 @@ public class IntersectionOfTwoMatrices_03 {
         // Прочита двуизмерна матрица, без разстояния между символите
         char[][] matrix = new char[rows][];
 
-        for (int i = 0; i < rows; i++) {
+        for (int i = 0; i < rows; i++)
             matrix[i] = scanner.nextLine().replaceAll("\\s+", "").toCharArray();
-        }
 
         return matrix;
     }
