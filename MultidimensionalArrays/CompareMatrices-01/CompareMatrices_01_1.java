@@ -37,26 +37,14 @@ public class CompareMatrices_01_1 {
 
         }
 
-        // Ако са различни дължината на колоните и редовете не са еднакви
-        boolean haveEqualRowsAndColumns = firstRows == secondRows && firstColumns == secondColumns;
+        // Ако дължината на редовете и колоните са еднакви, както и всички елементи са еднакви
+        boolean areEqual = (firstRows == secondRows && firstColumns == secondColumns)
+                && haveEqualElements(firstMatrix, secondMatrix);
 
-        if (!haveEqualRowsAndColumns) {
+        String result = areEqual
+                ? "equal" : "not equal";
 
-            System.out.println("not equal");
-
-        } else {
-
-            if (haveEqualElements(firstMatrix, secondMatrix)) { // <- Ако имат еднакви елементи
-
-                System.out.println("equal");
-
-            } else {
-
-                System.out.println("not equal");
-
-            }
-
-        }
+        System.out.println(result);
 
     }
 
