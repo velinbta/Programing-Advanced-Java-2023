@@ -11,24 +11,10 @@ public class PrintDiagonalsOfSquareMatrix_06_2 {
 
         int[][] squareMatrix = fillInSquareMatrix(scanner, squareMatrixRows); // <- Винаги квадрат
 
-        int[][] subMatrix = new int[2][squareMatrixRows]; // <- Подматрица с диагоналните стойности
+        StringBuilder diagonalsOutput = getTopDiagonalInSquareMatrix(squareMatrix); // <- Горен диагонал
+        diagonalsOutput = getBottomDiagonalsInSquareMatrix(squareMatrix, diagonalsOutput); // <- Долен диагонал
 
-        int bottomRowStart = squareMatrix.length - 1; // <- Ще взема от най-долния ред
-        int bottomColumnStart = 0; // <- Ще взема от най-долната колона
-
-        for (int row = 0; row < squareMatrix.length; row++, bottomRowStart--, bottomColumnStart++) {
-
-            int topElement = squareMatrix[row][row]; // <- Горен елемент
-            int bottomElement = squareMatrix[bottomRowStart][bottomColumnStart]; // <- Долен
-
-            // Записвам диагоналите
-            subMatrix[0][row] = topElement;
-            subMatrix[1][row] = bottomElement;
-
-        }
-
-        Arrays.stream(subMatrix).forEach(arr ->
-                System.out.println(Arrays.toString(arr).replaceAll("[\\[\\],]", "")));
+        System.out.print(diagonalsOutput);
 
     }
 
@@ -41,6 +27,40 @@ public class PrintDiagonalsOfSquareMatrix_06_2 {
                     .mapToInt(e -> Integer.parseInt(e)).toArray();
 
         return squareMatrix;
+    }
+
+    private static StringBuilder getTopDiagonalInSquareMatrix(int[][] squareMatrix) {
+        // От ляво надясно, от горе надолу - диагонал
+        StringBuilder topDiagonalBuild = new StringBuilder();
+        for (int row = 0; row < squareMatrix.length; row++) {
+
+            int element = squareMatrix[row][row];
+
+            topDiagonalBuild = row != squareMatrix.length - 1
+                    ? topDiagonalBuild.append(element).append(" ")
+                    : topDiagonalBuild.append(element);
+
+        }
+
+        topDiagonalBuild.append(System.lineSeparator());
+
+        return topDiagonalBuild;
+    }
+
+    private static StringBuilder getBottomDiagonalsInSquareMatrix
+            (int[][] squareMatrix, StringBuilder topDiagonals) {
+        // От ляво надясно, от долу нагоре - диагонал
+        int frontPosition = 0;
+        for (int row = squareMatrix.length - 1; row >= 0; row--, frontPosition++) {
+
+            int element = squareMatrix[row][frontPosition];
+            topDiagonals = row != 0
+                    ? topDiagonals.append(element).append(" ")
+                    : topDiagonals.append(element);
+
+        }
+
+        return topDiagonals;
     }
 
 }
