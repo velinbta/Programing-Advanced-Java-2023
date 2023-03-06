@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class PrintDiagonalsOfSquareMatrix_06_1 {
+public class PrintDiagonalsOfSquareMatrix_06_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -13,24 +13,20 @@ public class PrintDiagonalsOfSquareMatrix_06_1 {
 
         int[][] subMatrix = new int[2][squareMatrixRows]; // <- Подматрица с диагоналните стойности
 
-        // От ляво надясно, от горе надолу - диагонал
-        for (int row = 0; row < squareMatrix.length; row++) {
+        int bottomRowStart = squareMatrix.length - 1; // <- Ще взема от най-долния ред
+        int bottomColumnStart = 0; // <- Ще взема от най-долната колона
 
-            int element = squareMatrix[row][row];
-            subMatrix[0][row] = element;
+        for (int row = 0; row < squareMatrix.length; row++, bottomRowStart--, bottomColumnStart++) {
 
-        }
+            int topElement = squareMatrix[row][row]; // <- Горен елемент
+            int bottomElement = squareMatrix[bottomRowStart][bottomColumnStart]; // <- Долен
 
-        int frontPosition = 0;
-        // От ляво надясно, от долу нагоре - диагонал
-        for (int row = squareMatrix.length - 1; row >= 0; row--, frontPosition++) {
-
-            int element = squareMatrix[row][frontPosition];
-            subMatrix[1][frontPosition] = element;
+            // Записвам диагоналите
+            subMatrix[0][row] = topElement;
+            subMatrix[1][row] = bottomElement;
 
         }
 
-        // Принтирам подматрицата с диагоналните стойности
         Arrays.stream(subMatrix).forEach(arr ->
                 System.out.println(Arrays.toString(arr).replaceAll("[\\[\\],]", "")));
 
@@ -39,6 +35,7 @@ public class PrintDiagonalsOfSquareMatrix_06_1 {
     private static int[][] fillInSquareMatrix(Scanner scanner, int rows) {
         // Прочита квадратна матрица
         int[][] squareMatrix = new int[rows][rows];
+
         for (int row = 0; row < squareMatrix.length; row++)
             squareMatrix[row] = Arrays.stream(scanner.nextLine().split("\\s+"))
                     .mapToInt(e -> Integer.parseInt(e)).toArray();
