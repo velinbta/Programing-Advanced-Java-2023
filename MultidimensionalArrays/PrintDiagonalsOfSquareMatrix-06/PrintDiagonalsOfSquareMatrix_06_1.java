@@ -37,7 +37,7 @@ public class PrintDiagonalsOfSquareMatrix_06_1 {
     }
 
     private static int[][] fillInSquareMatrix(Scanner scanner, int rows) {
-        // Протича квадратна матрица
+        // Прочита квадратна матрица
         int[][] squareMatrix = new int[rows][rows];
         for (int i = 0; i < squareMatrix.length; i++)
             squareMatrix[i] = Arrays.stream(scanner.nextLine().split("\\s+"))
