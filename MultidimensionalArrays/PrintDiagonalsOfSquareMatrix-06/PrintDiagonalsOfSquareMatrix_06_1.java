@@ -13,7 +13,8 @@ public class PrintDiagonalsOfSquareMatrix_06_1 {
 
         int[][] subMatrix = new int[2][squareMatrixRows]; // <- Подматрица с диагоналните стойности
 
-        for (int row = 0; row < squareMatrix.length; row++) { // <- От ляво надясно диагонал
+        // От ляво надясно, от горе надолу - диагонал
+        for (int row = 0; row < squareMatrix.length; row++) {
 
             int element = squareMatrix[row][row];
             subMatrix[0][row] = element;
@@ -21,7 +22,8 @@ public class PrintDiagonalsOfSquareMatrix_06_1 {
         }
 
         int frontPosition = 0;
-        for (int row = squareMatrix.length - 1; row >= 0; row--, frontPosition++) { // <- От долу нагоре диагонал
+        // От ляво надясно, от долу нагоре - диагонал
+        for (int row = squareMatrix.length - 1; row >= 0; row--, frontPosition++) {
 
             int element = squareMatrix[row][frontPosition];
             subMatrix[1][frontPosition] = element;
