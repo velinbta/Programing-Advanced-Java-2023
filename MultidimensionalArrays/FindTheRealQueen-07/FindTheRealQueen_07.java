@@ -14,9 +14,9 @@ public class FindTheRealQueen_07 {
 
                 char currentSymbol = chessMatrix[row][col];
 
-                if (currentSymbol == 'q') { // <- Когато намеря кралицата - започвам серия от проверки
+                if (currentSymbol == 'q') { // <- Когато намеря кралица - започвам серия от проверки
 
-                    // Умишлено са разпръснати, за да се пропускат редове при открита поне 1 кралица
+                    // Умишлено разпръснати проверки, за да се пропускат редове при открита поне 1 кралица
                     if (horizontalContainsOtherQ(chessMatrix, row, col)) { // <- Хоризонтал
                         break;
                     }
