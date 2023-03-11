@@ -3,13 +3,13 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class FillTheMatrix_01 {
+public class FillTheMatrix_01_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         String[] inputArr = scanner.nextLine().split(",\\s+");
 
-        int size = Integer.parseInt(inputArr[0]);
+        int size = Integer.parseInt(inputArr[0]); // <- N x N
         String pattern = inputArr[1];
 
         int[][] matrix = pattern.equals("A")
@@ -25,13 +25,13 @@ public class FillTheMatrix_01 {
         // Запълва матрица от тип A
         int[][] matrix = new int[size][size];
 
-        int values = 1;
+        int value = 1;
 
         for (int row = 0; row < matrix.length; row++)
 
-            for (int col = 0; col < matrix[row].length; col++, values++)
+            for (int col = 0; col < matrix[row].length; col++, value++)
 
-                matrix[col][row] = values;
+                matrix[col][row] = value;
 
         return matrix;
     }
@@ -40,21 +40,21 @@ public class FillTheMatrix_01 {
         // Запълва матрица от тип B
         int[][] matrix = new int[size][size];
 
-        int values = 1;
+        int value = 1;
 
         for (int row = 0; row < matrix.length; row++)
 
             if (row % 2 == 0) // <- Четен ред
 
-                for (int col = 0; col < matrix[row].length; col++, values++)
+                for (int col = 0; col < matrix[row].length; col++, value++)
 
-                    matrix[col][row] = values;
+                    matrix[col][row] = value;
 
             else // <- Нечетен ред
 
-                for (int col = matrix.length - 1; col >= 0; col--, values++)
+                for (int col = matrix.length - 1; col >= 0; col--, value++)
 
-                    matrix[col][row] = values;
+                    matrix[col][row] = value;
 
         return matrix;
     }
