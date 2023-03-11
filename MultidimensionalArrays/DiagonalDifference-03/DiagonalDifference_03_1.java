@@ -20,7 +20,7 @@ public class DiagonalDifference_03_1 {
     }
 
     private static int[][] fillInMatrixWithWhitespacesDelimiter(Scanner scanner, int size) {
-
+        // Прочита матрица N x N размер от конзолата
         int[][] matrix = new int[size][size];
 
         for (int row = 0; row < matrix.length; row++)
@@ -32,7 +32,7 @@ public class DiagonalDifference_03_1 {
     }
 
     private static int getLeftDiagonalSum(int[][] matrix) {
-
+        // Намира сума на ляв диагонал
         int leftDiagonalSum = 0;
 
         for (int row = 0; row < matrix.length; row++)
@@ -43,7 +43,7 @@ public class DiagonalDifference_03_1 {
     }
 
     private static int getRightDiagonalSum(int[][] matrix) {
-
+        // Намира сума на десен диагонал
         int rightDiagonalSum = 0;
         int col = 0;
 
