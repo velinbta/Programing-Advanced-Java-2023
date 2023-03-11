@@ -13,15 +13,14 @@ public class MatrixOfPalindromes_02_1 {
         int rowsMatrix = dimensionArr[0]; // <- Редове
         int colsMatrix = dimensionArr[1]; // <- Колони
 
-        String[][] matrix = fillInStringMatrix(rowsMatrix, colsMatrix); // <- Запълвам матрицата
+        String[][] matrix = fillInPalindromeMatrix(rowsMatrix, colsMatrix); // <- Запълвам матрицата
 
         Arrays.stream(matrix).forEach(arr ->
                 System.out.println(Arrays.toString(arr).replaceAll("[\\[\\],]", "")));
 
-
     }
 
-    private static String[][] fillInStringMatrix(int rows, int cols) {
+    private static String[][] fillInPalindromeMatrix(int rows, int cols) {
         // Запълва матрица от дадени редове и колони (всяка String стойност по 3)
         String[][] matrix = new String[rows][cols];
 
