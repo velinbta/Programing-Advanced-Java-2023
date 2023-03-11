@@ -9,10 +9,10 @@ public class DiagonalDifference_03_2 {
 
         int sizeMatrix = Integer.parseInt(scanner.nextLine().split("\\s+")[0]); // <- Размер, редове и колони
 
-        int[][] matrix = fillInMatrixWithWhitespacesDelimiter(scanner, sizeMatrix);
+        int[][] squareMatrix = fillInMatrixWithWhitespacesDelimiter(scanner, sizeMatrix);
 
-        int leftDiagonalSum = getLeftDiagonalSum(matrix); // <- Сума ляв диагонал
-        int rightDiagonalSum = getRightDiagonalSum(matrix); // <- Сума десен диагонал
+        int leftDiagonalSum = getLeftDiagonalSum(squareMatrix); // <- Сума ляв диагонал
+        int rightDiagonalSum = getRightDiagonalSum(squareMatrix); // <- Сума десен диагонал
         int diff = Math.abs(leftDiagonalSum - rightDiagonalSum); // <- Разлика между ляв и десен диагонал
 
         System.out.println(diff);

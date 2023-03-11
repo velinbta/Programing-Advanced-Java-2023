@@ -9,16 +9,16 @@ public class DiagonalDifference_03_1 {
 
         int sizeMatrix = Integer.parseInt(scanner.nextLine()); // <- Размер, редове и колони
 
-        int[][] matrix = fillInMatrixWithWhitespacesDelimiter(scanner, sizeMatrix);
+        int[][] squareMatrix = fillInMatrixWithWhitespacesDelimiter(scanner, sizeMatrix);
 
         int primaryDiagonal = 0; // <- Сума първоначален диагонал
         int secondaryDiagonal = 0; // <- Сума второстепенен диагонал
 
-        int secondaryPosition = matrix.length - 1;
-        for (int row = 0; row < matrix.length; row++, secondaryPosition--) {
+        int secondaryPosition = squareMatrix.length - 1;
+        for (int row = 0; row < squareMatrix.length; row++, secondaryPosition--) {
 
-            primaryDiagonal += matrix[row][row];
-            secondaryDiagonal += matrix[row][secondaryPosition];
+            primaryDiagonal += squareMatrix[row][row];
+            secondaryDiagonal += squareMatrix[row][secondaryPosition];
 
         }
 
