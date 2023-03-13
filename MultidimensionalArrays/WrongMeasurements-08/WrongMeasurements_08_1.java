@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class WrongMeasurements_08 {
+public class WrongMeasurements_08_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -102,9 +102,8 @@ public class WrongMeasurements_08 {
         return matrix;
     }
 
-    // Проверява въведените индекси - дали са в рамките на матрицата
     private static boolean isInputValuesCorrect(int row, int column, int[][] matrix) {
-
+        // Проверява въведените индекси - дали са в рамките на матрицата
         return row >= 0 && row < matrix.length && column >= 0 && column < matrix[row].length;
 
     }
