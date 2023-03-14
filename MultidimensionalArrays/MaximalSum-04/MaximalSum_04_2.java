@@ -3,7 +3,7 @@ package MultidimensionalArrays;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class MaximalSum_04 {
+public class MaximalSum_04_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public class MaximalSum_04 {
     }
 
     private static int[][] fillInMatrixWithWhitespaceDelimiter(Scanner scanner, int rows) {
-
+        // Прочита матрица от конзолата
         int[][] matrix = new int[rows][];
 
         for (int row = 0; row < matrix.length; row++)
