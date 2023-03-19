@@ -68,14 +68,16 @@ public class RallyRacing_02 {
                     break;
 
                 case 'T':
-                    // Ако попадне на един от тунелите и двата тунела се закриват
+                    // Ако попадне на един от тунелите, се премества в другия и двата тунела се закриват
                     if (carCurrentRow == firstTunnelArr[0] && carCurrentCol == firstTunnelArr[1]) { // <- Първи тунел
 
+                        // Отива във втори
                         carCurrentRow = secondTunnelArr[0];
                         carCurrentCol = secondTunnelArr[1];
 
                     } else { // <- Втори тунел
 
+                        // Отива в първи
                         carCurrentRow = firstTunnelArr[0];
                         carCurrentCol = firstTunnelArr[1];
 
