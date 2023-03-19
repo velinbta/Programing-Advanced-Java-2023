@@ -24,6 +24,7 @@ public class RallyRacing_02 {
 
         boolean isFinished = false;
 
+        label:
         while (!direction.equals("End")) {
 
             switch (direction) { // <- Местя положението на автомобила според посоката
@@ -60,36 +61,38 @@ public class RallyRacing_02 {
             char currentCarPosition = routeMatrix[carCurrentRow][carCurrentCol];
 
             // Ако в матрицата автомобила се намира на:
-            if (currentCarPosition == '.') {
+            switch (currentCarPosition) {
 
-                distance += 10;
+                case '.':
+                    distance += 10;
+                    break;
 
-            } else if (currentCarPosition == 'T') {
+                case 'T':
+                    // Ако попадне на един от тунелите и двата тунела се закриват
+                    if (carCurrentRow == firstTunnelArr[0] && carCurrentCol == firstTunnelArr[1]) { // <- Първи тунел
 
-                // Ако попадне на един от тунелите и двата тунела се закриват
-                if (carCurrentRow == firstTunnelArr[0] && carCurrentCol == firstTunnelArr[1]) { // <- Първи тунел
+                        carCurrentRow = secondTunnelArr[0];
+                        carCurrentCol = secondTunnelArr[1];
 
-                    carCurrentRow = secondTunnelArr[0];
-                    carCurrentCol = secondTunnelArr[1];
+                    } else { // <- Втори тунел
 
-                } else { // <- Втори тунел
+                        carCurrentRow = firstTunnelArr[0];
+                        carCurrentCol = firstTunnelArr[1];
 
-                    carCurrentRow = firstTunnelArr[0];
-                    carCurrentCol = firstTunnelArr[1];
+                    }
 
-                }
+                    routeMatrix[firstTunnelArr[0]][firstTunnelArr[1]] = '.';
+                    routeMatrix[secondTunnelArr[0]][secondTunnelArr[1]] = '.';
 
-                routeMatrix[firstTunnelArr[0]][firstTunnelArr[1]] = '.';
-                routeMatrix[secondTunnelArr[0]][secondTunnelArr[1]] = '.';
+                    distance += 30;
+                    break;
 
-                distance += 30;
+                case 'F':
+                    // Ако попадне на финал
+                    distance += 10;
+                    isFinished = true;
+                    break label; // <- Прекратявам цикъла
 
-            } else if (currentCarPosition == 'F') {
-
-                // Ако попадне на финал
-                distance += 10;
-                isFinished = true;
-                break;
             }
 
             direction = scanner.nextLine();
@@ -97,7 +100,7 @@ public class RallyRacing_02 {
 
         routeMatrix[carCurrentRow][carCurrentCol] = 'C'; // <- Поставям местоположението на автомобила в матрицата
 
-        printOutput(routeMatrix, isFinished, carNumber, distance);
+        printOutput(routeMatrix, isFinished, carNumber, distance); // <- Принтирам изходните данни
 
     }
 
