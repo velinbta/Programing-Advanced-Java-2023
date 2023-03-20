@@ -1,45 +1,36 @@
 package SetsMaps;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SoftUniParty_02_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String guests = scanner.nextLine();
+        Set<String> guestsSet = new TreeSet<>(); // Set с гостите
 
-        // Попълвам поканените гости
-        Set<String> invitationSet = fillInGuestStringHashSet(scanner, guests, "PARTY");
+        // При "PARTY" - добавям, при "END" - премахвам
+        operateWithSet(scanner, scanner.nextLine(), guestsSet, "PARTY");
+        operateWithSet(scanner, scanner.nextLine(), guestsSet, "END");
 
-        guests = scanner.nextLine();
-
-        // Попълвам гостите, които са дошли на партито
-        Set<String> appearedSet = fillInGuestStringHashSet(scanner, guests, "END");
-
-        Set<String> nonAppearedSet = new TreeSet<>(); // <- Гости, които не са дошли
-        invitationSet.forEach(guest -> {
-
-            if (!appearedSet.contains(guest)) { // <- Ако в дошлите гости, не се съдържат поканените
-                nonAppearedSet.add(guest);
-            }
-
-        });
-
-        System.out.println(nonAppearedSet.size()); // <- Брой на гости, който не са дошли
-        nonAppearedSet.forEach(guest -> System.out.println(guest));
+        System.out.println(guestsSet.size()); // <- Брой на гости, който не са дошли
+        guestsSet.forEach(guest -> System.out.println(guest));
 
     }
 
-    private static Set<String> fillInGuestStringHashSet(Scanner scanner, String guests, String command) {
-        // Попълва HashSet с гости
-        Set<String> guestsSet = new HashSet<>();
+    private static void operateWithSet(Scanner scanner, String guests, Set<String> guestsSet, String command) {
+        // Прочита от конзолата и според командата, добавя или премахва в Set
         while (!guests.equals(command)) {
 
-            guestsSet.add(guests);
+            if (command.equals("PARTY"))
+                guestsSet.add(guests);
+            else if (command.equals("END"))
+                guestsSet.remove(guests);
+
             guests = scanner.nextLine();
         }
 
-        return guestsSet;
     }
 
 }
