@@ -2,7 +2,7 @@ package SetsMaps;
 
 import java.util.*;
 
-public class VoinaNumberGame_03 {
+public class VoinaNumberGame_03_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,33 +14,27 @@ public class VoinaNumberGame_03 {
         Deque<Integer> firstPlayerQueue = moveIntegersFromSetToQueue(firstPlayerSet);
         Deque<Integer> secondPlayerQueue = moveIntegersFromSetToQueue(secondPlayerSet);
 
-        int rounds = 0;
-        // "50" игри по условие или докато някой от играчите не му свършат картите
-        while (rounds <= 50 && !firstPlayerQueue.isEmpty() && !secondPlayerQueue.isEmpty()) {
+        int rounds = 50; // <- 50 игри по условие или докато някой от играчите не му свършат картите
+        while (rounds > 0 && !firstPlayerQueue.isEmpty() && !secondPlayerQueue.isEmpty()) {
 
             // Изтеглят се картите на двамата играчи от опашката
             int firstPlayerCard = firstPlayerQueue.poll();
             int secondPlayerCard = secondPlayerQueue.poll();
 
-            // За да се зачете рунд, картите трябва да са различни
-            if (firstPlayerCard != secondPlayerCard) {
+            // Ако са еднакви картите не се играят
+            if (firstPlayerCard > secondPlayerCard) { // <- Първи играч взима двете и ги слага накрая
 
-                if (firstPlayerCard > secondPlayerCard) { // <- Първи играч взима двете и ги слага накрая
+                firstPlayerQueue.offer(firstPlayerCard);
+                firstPlayerQueue.offer(secondPlayerCard);
 
-                    firstPlayerQueue.offer(firstPlayerCard);
-                    firstPlayerQueue.offer(secondPlayerCard);
+            } else if (secondPlayerCard > firstPlayerCard) { // <- Втори играч взима двете и ги слага накрая
 
-                } else { // <- Втори играч взима двете и ги слага накрая
-
-                    secondPlayerQueue.offer(secondPlayerCard);
-                    secondPlayerQueue.offer(firstPlayerCard);
-
-                }
-
-                rounds++;
+                secondPlayerQueue.offer(firstPlayerCard);
+                secondPlayerQueue.offer(secondPlayerCard);
 
             }
 
+            rounds--;
         }
 
         String output = getGameResult(firstPlayerQueue, secondPlayerQueue); // <- Резултат от играта
