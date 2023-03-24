@@ -63,6 +63,7 @@ public class HandsOfCards_07 {
         } else {
             char power = card.charAt(0);
             switch (power) {
+
                 case 'J':
                     return 11;
                 case 'Q':
@@ -94,8 +95,6 @@ public class HandsOfCards_07 {
                 return 3;
             case 'D':
                 return 2;
-            case 'C':
-                return 1;
             default:
                 return 1;
 
