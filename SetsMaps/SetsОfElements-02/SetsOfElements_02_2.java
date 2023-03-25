@@ -1,6 +1,5 @@
 package SetsMaps;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -9,32 +8,18 @@ public class SetsOfElements_02_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int[] lengthArr = readIntegerArray(scanner);
-        int firstSetLength = lengthArr[0]; // <- Редове за първи Set
-        int secondSetLength = lengthArr[1]; // <- Редове за втори Set
+        String input = scanner.nextLine();
+        int firstSetLength = Integer.parseInt(input.split("\\s+")[0]); // <- Редове за първи Set
+        int secondSetLength = Integer.parseInt(input.split("\\s+")[1]); // <- Редове за втори Set
 
-        // Запълвам двата Set
         Set<Integer> firstSet = readAndFillInLinkedHashSetByLength(scanner, firstSetLength);
         Set<Integer> secondSet = readAndFillInLinkedHashSetByLength(scanner, secondSetLength);
 
-        Set<Integer> repeatingElementsSet = new LinkedHashSet<>(); // <- Повтарящите се елементи от двата Set
+        // Създавам Set за повтарящите се елементи, който първоначално става равен на първия Set
+        Set<Integer> repeatingElementsSet = new LinkedHashSet<>(firstSet);
+        repeatingElementsSet.retainAll(secondSet); // <- И премахвам всички елементи, които ги няма във втория Set
 
-        firstSet.forEach(num -> {
-            // Ако елементът се съдържа и в другия Set го добавям в този с повтарящите се елементи
-            if (secondSet.contains(num)) {
-                repeatingElementsSet.add(num);
-            }
-
-        });
-
-        repeatingElementsSet.forEach(n -> System.out.print(n + " "));
-
-    }
-
-    private static int[] readIntegerArray(Scanner scanner) {
-        // Прочита int[]
-        return Arrays.stream(scanner.nextLine().split("\\s+"))
-                .mapToInt(n -> Integer.parseInt(n)).toArray();
+        repeatingElementsSet.forEach(e -> System.out.print(e + " "));
 
     }
 
@@ -42,7 +27,6 @@ public class SetsOfElements_02_2 {
         // Попълва LinkedHashSet по зададени редове
         Set<Integer> set = new LinkedHashSet<>();
         for (int i = 0; i < length; i++)
-
             set.add(Integer.parseInt(scanner.nextLine()));
 
         return set;
