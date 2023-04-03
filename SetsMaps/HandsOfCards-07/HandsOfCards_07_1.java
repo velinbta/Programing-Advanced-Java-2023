@@ -3,7 +3,7 @@ package SetsMaps;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class HandsOfCards_07 {
+public class HandsOfCards_07_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
