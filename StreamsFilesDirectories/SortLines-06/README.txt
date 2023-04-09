@@ -3,13 +3,13 @@ Read the file provided, named "input.txt" and sort all lines. Write text to anot
 
 Examples:
 
-Input 1:
+Input:
 C
 A
 B
 D
 
-Output 1:
+Output:
 A
 B
 C

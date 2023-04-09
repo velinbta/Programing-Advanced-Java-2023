@@ -10,7 +10,7 @@ public class WriteEveryThirdLine_05_1 {
     public static void main(String[] args) {
 
         String inPath = "StreamsFilesDirectories/WriteEveryThirdLine-05/input.txt";
-        String outPath = "StreamsFilesDirectories/WriteEveryThirdLine-05/WriteEveryThirdLine_05_1_output";
+        String outPath = "StreamsFilesDirectories/WriteEveryThirdLine-05/WriteEveryThirdLine_05_1_output.txt";
 
         try (Scanner scanner = new Scanner(new FileInputStream(inPath));
              PrintWriter out = new PrintWriter(new FileOutputStream(outPath))) {

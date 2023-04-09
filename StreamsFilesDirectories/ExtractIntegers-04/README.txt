@@ -3,12 +3,12 @@ Read the file provided, named "input.txt" and extracts all integers that are not
 
 Examples:
 
-Input 1:
+Input:
 On January 1 , 1533 , Michael Angelo, then fifty-seven years old, writes
 .......
 
 
-Output 1:
+Output:
 1
 1533
 ........
