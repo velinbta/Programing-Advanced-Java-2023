@@ -1,5 +1,5 @@
 1. Sum Lines
-Write a program that reads a text file ("input.txt" from the Resources - Exercises(find in repository)) and prints on the console the sum of the ASCII symbols of each of its lines. Use BufferedReader in combination with FileReader.
+Write a program that reads a text file ("input.txt" from the Resources - Exercises(task directory)) and prints on the console the sum of the ASCII symbols of each of its lines. Use BufferedReader in combination with FileReader.
 
 Examples:
 

@@ -11,13 +11,12 @@ public class SumLines_01_1 {
 
         String path = "StreamsFilesDirectories/SumLines-01/input.txt";
 
-        try {
-
-            BufferedReader in = new BufferedReader(new FileReader(path));
+        try (BufferedReader in = new BufferedReader(new FileReader(path))) {
 
             int oneByte = in.read(); // <- Байт по байт
 
             List<Long> lineAsciiValuesList = new ArrayList<>();
+
             long count = 0;
             while (oneByte != -1) {
 
@@ -45,7 +44,7 @@ public class SumLines_01_1 {
 
         } catch (IOException e) {
 
-            System.out.println("File not found,please review source!");
+            System.out.println("File not found, please review source!");
 
         }
 
