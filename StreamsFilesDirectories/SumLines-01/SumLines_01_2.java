@@ -9,16 +9,16 @@ public class SumLines_01_2 {
 
         String path = "StreamsFilesDirectories/SumLines-01/input.txt";
 
-        try (BufferedReader in = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 
-            String line = in.readLine(); // <- Ред
+            String line = reader.readLine(); // <- Ред
 
             while (line != null) {
 
-                int sum = line.chars().sum(); // <- Сума, ascii стойностите на целия ред
+                long sum = line.chars().sum(); // <- Сума, ascii стойностите на целия ред
                 System.out.println(sum);
 
-                line = in.readLine(); // <- Прочитам нов ред
+                line = reader.readLine(); // <- Прочитам нов ред
             }
 
         } catch (IOException e) {
