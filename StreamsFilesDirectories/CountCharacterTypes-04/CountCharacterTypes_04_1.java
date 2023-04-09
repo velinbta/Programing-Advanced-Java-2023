@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 
-public class CountCharacterTypes_04 {
+public class CountCharacterTypes_04_1 {
     public static void main(String[] args) {
 
         String inPath = "StreamsFilesDirectories/CountCharacterTypes-04/input.txt";
-        String outPath = "StreamsFilesDirectories/CountCharacterTypes-04/output.txt";
+        String outPath = "StreamsFilesDirectories/CountCharacterTypes-04/CountCharacterTypes_04_1_output.txt";
 
         try (FileInputStream in = new FileInputStream(inPath);
              PrintWriter out = new PrintWriter(outPath)) {
@@ -20,9 +20,9 @@ public class CountCharacterTypes_04 {
             Set<Character> vowelsSet = Set.of('a', 'e', 'i', 'o', 'u');
             Set<Character> punctuationSet = Set.of('!', ',', '.', '?');
 
-            int vowelsCount = 0;
-            int otherSymbolsCount = 0;
-            int punctuationCount = 0;
+            long vowelsCount = 0L;
+            long otherSymbolsCount = 0L;
+            long punctuationCount = 0L;
 
             while (bytes != -1) {
 
@@ -52,7 +52,7 @@ public class CountCharacterTypes_04 {
                 bytes = in.read();
             }
 
-            // Принтирам преброените в output.txt
+            // Принтирам преброените в изходния файл
             out.printf("Vowels: %d\n", vowelsCount);
             out.printf("Other symbols: %d\n", otherSymbolsCount);
             out.printf("Punctuation: %d\n", punctuationCount);
