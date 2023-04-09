@@ -2,11 +2,11 @@ package StreamsFilesDirectories;
 
 import java.io.*;
 
-public class ALLCAPITALS_03 {
+public class ALLCAPITALS_03_2 {
     public static void main(String[] args) {
 
         String inPath = "StreamsFilesDirectories/ALLCAPITALS!-03/input.txt";
-        String outPath = "StreamsFilesDirectories/ALLCAPITALS!-03/output.txt";
+        String outPath = "StreamsFilesDirectories/ALLCAPITALS!-03/ALLCAPITALS_03_2_output.txt";
 
         try (FileInputStream in = new FileInputStream(inPath);
              FileOutputStream out = new FileOutputStream(outPath)) {
