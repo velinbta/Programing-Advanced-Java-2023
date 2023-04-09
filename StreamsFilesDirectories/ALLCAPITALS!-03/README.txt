@@ -1,0 +1,22 @@
+3. ALL CAPITALS!
+Write a program that reads a text file ("input.txt" from the Resources - Exercises(task directory)) and changes the casing of all letters to the upper. Write the output to another file ("output.txt").
+
+Examples:
+
+Input:
+On January 1 , 1533 , 
+Michael Angelo, 
+then fifty-seven years old, 
+writes
+from Florence to 
+Tommaso de' Cavalieri, 
+a youth of noble Roman family,
+
+Output:
+ON JANUARY 1 , 1533 , 
+MICHAEL ANGELO, 
+THEN FIFTY-SEVEN YEARS OLD, 
+WRITES
+FROM FLORENCE TO 
+TOMMASO DE' CAVALIERI, 
+A YOUTH OF NOBLE ROMAN FAMILY,
