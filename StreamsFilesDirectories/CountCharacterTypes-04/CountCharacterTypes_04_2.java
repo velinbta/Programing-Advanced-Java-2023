@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.Set;
 
 public class CountCharacterTypes_04_2 {
@@ -21,8 +22,8 @@ public class CountCharacterTypes_04_2 {
             long punctuationCount = 0L;
             long otherSymbolsCount = 0L;
 
-            Set<Character> vowelsSet = Set.of('a', 'e', 'i', 'o', 'u');
-            Set<Character> punctuationSet = Set.of('.', ',', '!', '?');
+            Set<Character> vowelsSet = new HashSet<>(Set.of('a', 'e', 'i', 'o', 'u'));
+            Set<Character> punctuationSet = new HashSet<>(Set.of('.', ',', '!', '?'));
 
             while (line != null) {
                 // Филтрирам гласните, пункуацията и останалите символи на текущия ред и ги добавям към сбора

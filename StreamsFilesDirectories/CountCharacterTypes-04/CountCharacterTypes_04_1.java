@@ -3,6 +3,7 @@ package StreamsFilesDirectories;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import java.util.Set;
 
 public class CountCharacterTypes_04_1 {
@@ -16,9 +17,9 @@ public class CountCharacterTypes_04_1 {
 
             int bytes = in.read();
 
-            Set<Character> skipSet = Set.of(' ', '\n', '\r');
-            Set<Character> vowelsSet = Set.of('a', 'e', 'i', 'o', 'u');
-            Set<Character> punctuationSet = Set.of('!', ',', '.', '?');
+            Set<Character> skipSet = new HashSet<>(Set.of(' ', '\n', '\r'));
+            Set<Character> vowelsSet = new HashSet<>(Set.of('a', 'e', 'i', 'o', 'u'));
+            Set<Character> punctuationSet = new HashSet<>(Set.of('!', ',', '.', '?'));
 
             long vowelsCount = 0L;
             long otherSymbolsCount = 0L;

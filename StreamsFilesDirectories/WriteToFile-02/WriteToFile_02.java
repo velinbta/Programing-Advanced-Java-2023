@@ -1,6 +1,7 @@
 package StreamsFilesDirectories;
 
 import java.io.*;
+import java.util.HashSet;
 import java.util.Set;
 
 public class WriteToFile_02 {
@@ -12,7 +13,7 @@ public class WriteToFile_02 {
         try (InputStream inputStream = new FileInputStream(inPath);
              OutputStream outputStream = new FileOutputStream(outPath)) {
 
-            Set<Character> punctuation = Set.of(',', '.', '!', '?');
+            Set<Character> punctuation = new HashSet<>(Set.of(',', '.', '!', '?'));
 
             int oneByte = inputStream.read();
 
