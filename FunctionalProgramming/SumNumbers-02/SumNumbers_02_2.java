@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.function.Function;
 
-public class SumNumbers_02 {
+public class SumNumbers_02_2 {
     public static void main(String[] args) {
 
         String input = new Scanner(System.in).nextLine();
