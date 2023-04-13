@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class FilterByAge_05 {
+public class FilterByAge_05_1 {
 
     private static class Person {
 
@@ -48,18 +48,20 @@ public class FilterByAge_05 {
 
         }
 
-        // Условия за възраст, години и формат на принтиране
         String condition = scanner.nextLine();
         int age = Integer.parseInt(scanner.nextLine());
         String format = scanner.nextLine();
 
+        // Създавам и филтрирам нов списък според условието
         List<Person> filteredList = getAgeFilteredArrayList(personList, condition, age);
+
+        // Принтирам според формата
         printAccordingToTheFormat(filteredList, format);
 
     }
 
     private static List<Person> getAgeFilteredArrayList(List<Person> personList, String condition, int age) {
-        // Връща нов списък с филтрирани хора според условие за възраст и години
+        // Връща нов списък с филтрирани хора според условие за възраст(older, younger) и години
         switch (condition) {
 
             case "older":
@@ -87,7 +89,7 @@ public class FilterByAge_05 {
                 break;
             default:
                 throw new IllegalArgumentException
-                        ("\nPossible valid arguments are:\nname age\nname\nage\n");
+                        ("\nPossible valid formats are:\nname age\nname\nage\n");
         }
 
     }
