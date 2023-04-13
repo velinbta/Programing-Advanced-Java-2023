@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.IntStream;
 
-public class FindEvensOrOdds {
+public class FindEvensOrOdds_06_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
