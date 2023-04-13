@@ -2,20 +2,18 @@ package FunctionalProgramming;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class CustomMinFunction_03_2 {
     public static void main(String[] args) {
 
-        Set<Integer> integerSet = Arrays.stream(new Scanner(System.in).nextLine().split("\\s+"))
-                .map(Integer::parseInt).collect(Collectors.toSet());
+        int[] numArr = Arrays.stream(new Scanner(System.in).nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
 
-        Function<Set<Integer>, Integer> minFunc = set -> set.stream()
-                .mapToInt(n -> n).min().orElse(-1); // <- Намира най-малкото число
+        Function<int[], Integer> minFunc = arr -> Arrays.stream(arr)
+                .min().orElse(-1); // <- Намира най-малкото число
 
-        int min = minFunc.apply(integerSet);
+        int min = minFunc.apply(numArr);
 
         System.out.println(min);
 
