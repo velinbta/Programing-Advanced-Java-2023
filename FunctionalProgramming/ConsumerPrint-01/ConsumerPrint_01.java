@@ -9,7 +9,7 @@ public class ConsumerPrint_01 {
 
         String[] words = new Scanner(System.in).nextLine().split("\\s+");
 
-        Consumer<String[]> printer = n -> Arrays.stream(n).forEach(System.out::println);
+        Consumer<String[]> printer = w -> Arrays.stream(w).forEach(System.out::println);
 
         printer.accept(words);
 
