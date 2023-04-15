@@ -18,25 +18,25 @@ public class AppliedArithmetic_04_1 {
             switch (command) {
 
                 case "add":
-                    // Прибавя на всяко число + 1 и запаметява
+                    // Прибавя на всяко число + 1
                     numArr = Arrays.stream(numArr).map(n -> n + 1).toArray();
 
                     break;
 
                 case "multiply":
-                    // Умножава всяко число по две и запаметява
+                    // Умножава всяко число по две
                     numArr = Arrays.stream(numArr).map(n -> n * 2).toArray();
 
                     break;
 
                 case "subtract":
-                    // Изважда от всяко число - 1 и запаметява
+                    // Изважда от всяко число - 1
                     numArr = Arrays.stream(numArr).map(n -> n - 1).toArray();
 
                     break;
 
                 case "print":
-
+                    // Принтира масива до момента
                     String output = Arrays.stream(numArr).mapToObj(String::valueOf)
                             .collect(Collectors.joining(" "));
 
