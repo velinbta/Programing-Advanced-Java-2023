@@ -13,7 +13,7 @@ public class ReverseAndExclude_05 {
         int divisibleOption = Integer.parseInt(scanner.nextLine());
 
         Deque<Integer> stack = new ArrayDeque<>();
-        // Премахвам всички числа, които се делят на даденото число и ги запаметявам в Stack
+        // Премахвам всички числа, които се делят на даденото число и ги съхранявам в Stack
         Arrays.stream(input.split("\\s+")).map(Integer::parseInt)
                 .filter(n -> n % divisibleOption != 0).forEach(stack::push);
 
