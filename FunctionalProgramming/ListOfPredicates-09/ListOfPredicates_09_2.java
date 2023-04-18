@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class ListOfPredicates_09 {
+public class ListOfPredicates_09_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
