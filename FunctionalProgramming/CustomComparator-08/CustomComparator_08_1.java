@@ -1,23 +1,31 @@
 package FunctionalProgramming;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.function.Function;
+import java.util.*;
+import java.util.function.IntPredicate;
 
 public class CustomComparator_08_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        int[] input = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
 
-        Integer[] naturalOrderSorted = Arrays.stream(input.split("\\s+")).map(Integer::parseInt)
-                .sorted().toArray(Integer[]::new);
+        IntPredicate even = n -> n % 2 == 0;
+        IntPredicate odd = n -> n % 2 != 0;
 
-        Function<Integer, Boolean> evenFirst = n -> n % 2 != 0; // <- Първо четните числа, след това нечетните
+        List<Integer> resultList = new ArrayList<>();
+        // Филтрира първо сортираните четни, след това нечетни
+        filterIntArrayByConditionSortAndAddToList(input, even, resultList);
+        filterIntArrayByConditionSortAndAddToList(input, odd, resultList);
 
-        Arrays.stream(naturalOrderSorted).sorted(Comparator.comparing(evenFirst))
-                .forEach(n -> System.out.print(n + " ")); // <- Сортирам и принтирам
+        resultList.forEach(n -> System.out.print(n + " "));
+
+    }
+
+    private static void filterIntArrayByConditionSortAndAddToList(int[] input, IntPredicate condition,
+                                                                  List<Integer> resultList) {
+
+        Arrays.stream(input).filter(condition).sorted().forEach(resultList::add);
 
     }
 
