@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class PredicateParty_10 {
+public class PredicateParty_10_1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
