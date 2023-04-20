@@ -1,61 +1,57 @@
 package FunctionalProgramming;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
+import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 
 public class AppliedArithmetic_04_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        List<Integer> numList = Arrays.stream(scanner.nextLine().split("\\s+"))
-                .map(Integer::parseInt).collect(Collectors.toList());
+        int[] numbersArr = Arrays.stream(scanner.nextLine().split("\\s+"))
+                .mapToInt(Integer::parseInt).toArray();
 
         String command = scanner.nextLine();
 
         while (!command.equals("end")) {
-            // Модифицирам списъка според командата
-            numList = getModifiedListAccordingToCommand(command, numList);
+
+            if (command.equals("print")) {
+
+                String output = Arrays.stream(numbersArr).mapToObj(String::valueOf)
+                        .collect(Collectors.joining(" "));
+
+                System.out.println(output);
+
+            } else { // <- Ако не е принт
+
+                IntUnaryOperator commandOperator = getCommandOperator(command);
+
+                // Променям числата в масива в зависимост от командата и презаписвам масива
+                numbersArr = Arrays.stream(numbersArr).map(commandOperator).toArray();
+
+            }
 
             command = scanner.nextLine();
+
         }
 
     }
 
-    private static List<Integer> getModifiedListAccordingToCommand(String command, List<Integer> numList) {
-
+    private static IntUnaryOperator getCommandOperator(String command) {
+        // В зависимост от командата ми връща IntUnaryOperator
         switch (command) {
 
             case "add":
-                // Прибавя на всяко число + 1
-                return numList.stream().map(n -> n + 1).collect(Collectors.toList());
-
+                return n -> n + 1; // <- Добавя + 1 на всички числа
             case "multiply":
-                // Умножава всяко число по две
-                return numList.stream().map(n -> n * 2).collect(Collectors.toList());
-
+                return n -> n * 2; // <- Умножава по две всички числа
             case "subtract":
-                // Изважда от всяко число - 1
-                return numList.stream().map(n -> n - 1).collect(Collectors.toList());
-
-            case "print":
-                // Принтира списъка до този момент
-                printText(numList);
-                return numList;
-
+                return n -> n - 1; // <- Изважда - 1 от всички числа
             default:
-
-                throw new IllegalArgumentException("Unknown command " + command);
+                throw new IllegalArgumentException("Use:\nadd\nmultiply\nsubtract");
 
         }
-
-    }
-
-    private static void printText(List<Integer> numList) {
-        // Принтира списъка до момента
-        System.out.println(numList.stream()
-                .map(String::valueOf).collect(Collectors.joining(" ")));
 
     }
 
