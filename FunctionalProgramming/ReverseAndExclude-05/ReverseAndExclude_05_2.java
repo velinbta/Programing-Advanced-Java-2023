@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.Scanner;
 
-public class ReverseAndExclude_05 {
+public class ReverseAndExclude_05_2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 

@@ -22,3 +22,15 @@ end
 
 Output 2:
 9 19
+
+Input 3:
+2222222 2222224
+add
+print
+add
+print
+end
+
+Output 3:
+2222223 2222225
+2222224 2222226
