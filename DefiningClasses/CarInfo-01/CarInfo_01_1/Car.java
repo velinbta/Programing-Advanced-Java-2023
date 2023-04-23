@@ -1,4 +1,4 @@
-package DefiningClasses;
+package CarInfo_01_1;
 
 public class Car {
     private String brand;
