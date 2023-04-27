@@ -1,7 +1,6 @@
 package CarSalesman_05_1;
 
 public class Car {
-    // model, engine, weight, and color <- Първоначални задължителни полета
     private String model;
     private String engine;
 

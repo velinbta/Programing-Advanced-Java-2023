@@ -1,7 +1,6 @@
 package CarSalesman_05_1;
 
 public class Engine {
-    // model, power, displacement, and efficiency <- Задължителни полета
     private String model;
     private Integer power;
 
