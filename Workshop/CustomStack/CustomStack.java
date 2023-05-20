@@ -10,7 +10,7 @@ public class CustomStack {
     private final int INITIAL_CAPACITY = 4;
 
     private int capacity = INITIAL_CAPACITY;
-    private int position = capacity - 1;
+    private int position = this.capacity - 1;
     private int size;
     private int[] stack;
 
@@ -47,6 +47,13 @@ public class CustomStack {
 
     public boolean isEmpty() {
         return size() == 0;
+    }
+
+    public void clear() {
+        this.stack = new int[INITIAL_CAPACITY];
+        this.capacity = INITIAL_CAPACITY;
+        this.position = this.capacity - 1;
+        this.size = 0;
     }
 
     public void forEach(Consumer<Integer> consumer) {
