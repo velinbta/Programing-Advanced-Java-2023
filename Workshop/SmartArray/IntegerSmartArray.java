@@ -4,14 +4,14 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-// Custom implementation of Integer SmartArray class
-public class SmartArray {
+// Custom implementation of Integer SmartArray class, using int[]
+public class IntegerSmartArray {
     private static final int INITIAL_CAPACITY = 4;
     private int capacity = INITIAL_CAPACITY;
     private int size;
     private int[] array;
 
-    public SmartArray() {
+    public IntegerSmartArray() {
         this.array = new int[INITIAL_CAPACITY];
     }
 

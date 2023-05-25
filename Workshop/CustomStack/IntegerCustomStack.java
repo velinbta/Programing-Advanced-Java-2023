@@ -5,8 +5,8 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-// Custom implementation of integer Stack, using int[]
-public class CustomStack {
+// Custom implementation of Integer Stack class, using int[]
+public class IntegerCustomStack {
     private final int INITIAL_CAPACITY = 4;
 
     private int capacity = INITIAL_CAPACITY;
@@ -14,7 +14,7 @@ public class CustomStack {
     private int size;
     private int[] stack;
 
-    public CustomStack() {
+    public IntegerCustomStack() {
         this.stack = new int[INITIAL_CAPACITY];
     }
 
