@@ -1,6 +1,7 @@
 SmartArray:
 
-In this workshop, we will create our own custom data structures - a custom list (SmartArray). The SmartArray will have similar functionality to Java ArrayList that you've used before. Our SmartArray will work only with integers for now, but after the Generics lecture from this course, you can try to change that and make the structure generic, which means it will be able to work with any type. It will have the following functionality:
+The SmartArray will have similar functionality to Java ArrayList. The SmartArray will work only with integers for now.
+It will have the following functionality:
 
 void add(int element) - Adds the given element to the end of the list
 int get(int index) - Returns the element at the specified position in this list
