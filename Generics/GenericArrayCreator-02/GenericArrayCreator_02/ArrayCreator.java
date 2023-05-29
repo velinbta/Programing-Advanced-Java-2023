@@ -18,7 +18,7 @@ public class ArrayCreator {
     }
 
     public static <T> T[] create(Class<T> clazz, int length, T defValue) {
-        
+
         @SuppressWarnings("unchecked")
         T[] array = (T[]) Array.newInstance(clazz, length); // <- Типът, се подава при аргументите
         Arrays.fill(array, defValue);
