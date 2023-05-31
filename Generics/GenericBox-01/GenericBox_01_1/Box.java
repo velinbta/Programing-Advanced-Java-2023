@@ -2,6 +2,7 @@ package GenericBox_01_1;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 // Generic Box<>
 public class Box<T> {
@@ -21,12 +22,14 @@ public class Box<T> {
 
         StringBuilder sb = new StringBuilder();
 
-        this.box.forEach(e -> sb.append(String.format("%s: %s", e.getClass().getName(), e))
-                .append(System.lineSeparator())); // Името на класа и добавения елемент
-        sb.delete(sb.lastIndexOf(System.lineSeparator()), sb.length());
+        IntStream.range(0, this.box.size()).forEach(e -> {
+            sb.append(String.format("%s: %s", this.box.get(e).getClass().getName(), this.box.get(e)));
+            if (e != this.box.size() - 1) {
+                sb.append(System.lineSeparator());
+            }
+        }); // Името на класа и всеки добавен елемент
 
         return sb.toString();
-
     }
 
 }
