@@ -13,7 +13,7 @@ public class Main {
         Box<String> box = new Box<>();
 
         IntStream.range(0, lines).forEach(line -> {
-            // Прочитам броя редове и добавям в кутията
+            // Прочита броя редове и добавя в кутията
             String input = scanner.nextLine();
             box.add(input);
         });

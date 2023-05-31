@@ -35,7 +35,6 @@ public class Box<T> {
 
     }
 
-
     private void verifyIndices(int firstIndex, int secondIndex) {
         // Проверява индексите в кутията
         if (isEmpty())
