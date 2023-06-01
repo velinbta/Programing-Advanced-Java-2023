@@ -1,4 +1,4 @@
-3. Generic Swap Method Strings
+4. Generic Swap Method Integers
 
 Create a generic class Box that can store any type. Override the toString() method to print the type and the value of the stored data in the format "{class full name}: {value}".
 Create a generic method that receives a list containing any type of data and swaps the elements at two given indexes.

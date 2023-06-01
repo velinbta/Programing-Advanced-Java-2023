@@ -1,4 +1,4 @@
-5. Generic Count Method Strings
+6. Generic Count Method Doubles
 
 Create a generic class Box that can store any type.
 
@@ -6,29 +6,24 @@ Create a method that receives as an argument a list of any type that can be comp
 
 On the first line, you will receive n - the number of elements to add to the list. On the next n lines, you will receive the actual elements. On the last line, you will get the value of the element to which you need to compare every element in the list.
 
-Test your list of generic boxes with Strings.
+Test your list of generic boxes with Doubles.
 
 Examples:
 
 Input 1:
 3
-aa
-aaa
-bb
-aa
+7.13
+123.22
+42.78
+7.55
 
 Output 1:
 2
 
 Input 2:
-6
-a
-b
-c
-d
-e
-f
-g
+1
+1231542.123
+1
 
 Output 2:
-0
+1
