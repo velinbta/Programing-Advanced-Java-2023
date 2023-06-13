@@ -32,7 +32,7 @@ public class BookWorm_02 {
                         String letter = matrix[currentRow - 1][currentCol];
 
                         if (!isLetterEmpty(letter)) {
-                            text = text.concat(letter);
+                            text = concatLetter(text, letter);
                         }
 
                         movePlayer(currentRow, currentCol, playerPosition, matrix,
@@ -41,9 +41,7 @@ public class BookWorm_02 {
                     } else { // <- Извън полето
 
                         if (!isTextEmpty(text)) {
-
                             text = deleteLastLetter(text);
-
                         }
 
                     }
@@ -57,7 +55,7 @@ public class BookWorm_02 {
                         String letter = matrix[currentRow + 1][currentCol];
 
                         if (!isLetterEmpty(letter)) {
-                            text = text.concat(letter);
+                            text = concatLetter(text, letter);
                         }
 
                         movePlayer(currentRow, currentCol, playerPosition, matrix,
@@ -66,9 +64,7 @@ public class BookWorm_02 {
                     } else { // <- Извън полето
 
                         if (!isTextEmpty(text)) {
-
                             text = deleteLastLetter(text);
-
                         }
 
                     }
@@ -82,7 +78,7 @@ public class BookWorm_02 {
                         String letter = matrix[currentRow][currentCol - 1];
 
                         if (!isLetterEmpty(letter)) {
-                            text = text.concat(letter);
+                            text = concatLetter(text, letter);
                         }
 
                         movePlayer(currentRow, currentCol, playerPosition, matrix,
@@ -91,9 +87,7 @@ public class BookWorm_02 {
                     } else { // <- Извън полето
 
                         if (!isTextEmpty(text)) {
-
                             text = deleteLastLetter(text);
-
                         }
 
                     }
@@ -107,7 +101,7 @@ public class BookWorm_02 {
                         String letter = matrix[currentRow][currentCol + 1];
 
                         if (!isLetterEmpty(letter)) {
-                            text = text.concat(letter);
+                            text = concatLetter(text, letter);
                         }
 
                         movePlayer(currentRow, currentCol, playerPosition, matrix,
@@ -116,9 +110,7 @@ public class BookWorm_02 {
                     } else { // <- Извън полето
 
                         if (!isTextEmpty(text)) {
-
                             text = deleteLastLetter(text);
-
                         }
 
                     }
@@ -135,22 +127,6 @@ public class BookWorm_02 {
 
     }
 
-    private static void movePlayer(int currentRow, int currentCol, int[] playerPosition,
-                                   String[][] matrix, int neededRow, int neededCol) {
-        // Премества играча в матрицата, и в помощния масив към неговата нова позиция
-        matrix[currentRow][currentCol] = "-";
-        matrix[neededRow][neededCol] = "P";
-
-        playerPosition[0] = neededRow;
-        playerPosition[1] = neededCol;
-
-    }
-
-    private static boolean isInBounds(String[][] matrix, int row, int col) {
-        // Проверява рамките на матрицата
-        return row >= 0 && row < matrix.length && col >= 0 && col < matrix[row].length;
-    }
-
     private static String[][] readMatrix(Scanner scanner, int sizeMatrix) {
         // Прочита квадратна матрица
         String[][] matrix = new String[sizeMatrix][];
@@ -165,8 +141,6 @@ public class BookWorm_02 {
         // Намира играча в полето на матрицата
         int[] playerPosition = new int[2];
 
-        boolean isFound = false;
-
         for (int row = 0; row < matrix.length; row++) {
 
             for (int col = 0; col < matrix[row].length; col++)
@@ -174,16 +148,33 @@ public class BookWorm_02 {
                 if (matrix[row][col].equals("P")) {
                     playerPosition[0] = row;
                     playerPosition[1] = col;
-                    isFound = true;
-                    break;
+                    return playerPosition;
                 }
-
-            if (isFound)
-                break;
 
         }
 
         return playerPosition;
+    }
+
+    private static boolean isInBounds(String[][] matrix, int row, int col) {
+        // Проверява рамките на матрицата
+        return row >= 0 && row < matrix.length && col >= 0 && col < matrix[row].length;
+    }
+
+    private static void movePlayer(int currentRow, int currentCol, int[] playerPosition,
+                                   String[][] matrix, int neededRow, int neededCol) {
+        // Премества играча в матрицата, и в помощния масив към неговата нова позиция
+        matrix[currentRow][currentCol] = "-";
+        matrix[neededRow][neededCol] = "P";
+
+        playerPosition[0] = neededRow;
+        playerPosition[1] = neededCol;
+
+    }
+
+    private static String concatLetter(String text, String letter) {
+        // Конкатенира буквата
+        return text.concat(letter);
     }
 
     private static String deleteLastLetter(String text) {
