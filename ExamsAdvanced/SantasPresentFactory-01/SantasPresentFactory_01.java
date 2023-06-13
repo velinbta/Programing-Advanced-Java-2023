@@ -12,11 +12,11 @@ public class SantasPresentFactory_01 {
 
         Map<String, Integer> presentCountMap = getPresentMap(); // <- Подаръци
 
-        while (!materialsStack.isEmpty() && !magicQueue.isEmpty()) { // <- Докато някоя структура не е празна
+        while (!materialsStack.isEmpty() && !magicQueue.isEmpty()) { // <- Докато, някоя структура не е празна
 
             int craftResult = materialsStack.peek() * magicQueue.peek();
 
-            if (!craftingIsSuccessful(craftResult, presentCountMap, materialsStack, magicQueue)) {
+            if (!isCraftingSuccessful(craftResult, presentCountMap, materialsStack, magicQueue)) {
                 // При неуспешна изработка, данните се обработват по други критерии
                 operateUnsuccessfulConditions(craftResult, materialsStack, magicQueue);
             }
@@ -60,7 +60,7 @@ public class SantasPresentFactory_01 {
         return presentCountMap;
     }
 
-    private static boolean craftingIsSuccessful(int craftResult, Map<String, Integer> presentCountMap,
+    private static boolean isCraftingSuccessful(int craftResult, Map<String, Integer> presentCountMap,
                                                 Deque<Integer> materialsStack, Deque<Integer> magicQueue) {
         // Проверява, дали резултатът е точен, за изработка на подарък
         // Ако е точен - изработва и премахва материал и "магия"
