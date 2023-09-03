@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Main {
 
-    public static final String create = "Create";
-    public static final String pet = "Pet";
-    public static final String clinic = "Clinic";
-    public static final String add = "Add";
-    public static final String release = "Release";
-    public static final String hasEmptyRooms = "HasEmptyRooms";
-    public static final String print = "Print";
+    public static final String CREATE_COMMAND = "Create";
+    public static final String PET_CREATE_COMMAND = "Pet";
+    public static final String CLINIC_CREATE_COMMAND = "Clinic";
+    public static final String ADD_COMMAND = "Add";
+    public static final String RELEASE_COMMAND = "Release";
+    public static final String HAS_EMPTY_ROOMS_COMMAND = "HasEmptyRooms";
+    public static final String PRINT_COMMAND = "Print";
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -27,14 +27,14 @@ public class Main {
 
             switch (command) {
 
-                case create: {
+                case CREATE_COMMAND: {
 
                     String type = input[1];
                     String name = input[2];
 
                     switch (type) {
 
-                        case pet:
+                        case PET_CREATE_COMMAND:
 
                             int age = Integer.parseInt(input[3]);
                             String kind = input[4];
@@ -45,7 +45,7 @@ public class Main {
 
                             break;
 
-                        case clinic:
+                        case CLINIC_CREATE_COMMAND:
 
                             int rooms = Integer.parseInt(input[3]);
 
@@ -65,9 +65,9 @@ public class Main {
                     }
 
                 }
-                    break;
+                break;
 
-                case add: {
+                case ADD_COMMAND: {
 
                     String petName = input[1];
                     String clinicName = input[2];
@@ -90,9 +90,9 @@ public class Main {
                     }
 
                 }
-                    break;
+                break;
 
-                case release: {
+                case RELEASE_COMMAND: {
 
                     String clinicName = input[1];
 
@@ -102,9 +102,9 @@ public class Main {
 
                 }
 
-                    break;
+                break;
 
-                case hasEmptyRooms: {
+                case HAS_EMPTY_ROOMS_COMMAND: {
 
                     String clinicName = input[1];
 
@@ -112,10 +112,9 @@ public class Main {
                             .ifPresent(clinic -> System.out.println(clinic.hasEmptyRooms()));
 
                 }
-                    break;
+                break;
 
-
-                case print: {
+                case PRINT_COMMAND: {
 
                     String clinicName = input[1];
 
